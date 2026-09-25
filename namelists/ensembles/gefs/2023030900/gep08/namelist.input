@@ -1,0 +1,277 @@
+ &time_control
+start_year = 2023, 2023, 2023, 2023,
+start_month = 03, 03, 03, 03,
+start_day = 09, 09, 09, 09,
+start_hour = 00, 00, 00, 00,
+start_minute = 0, 0, 0, 0,
+start_second = 0, 0, 0, 0,
+end_year = 2023, 2023, 2023, 2023,
+end_month = 03, 03, 03, 03,
+end_day = 14, 14, 14, 14,
+end_hour = 06, 06, 06, 06,
+end_minute = 0, 0, 0, 0,
+end_second = 0, 0, 0, 0,
+ interval_seconds                    = 10800
+ input_from_file                     = .true.,
+history_interval = 180, 180, 180, 180,
+ frames_per_outfile                  = 1,  1,   1,
+restart = .false.,
+restart_interval = 2880,
+ write_hist_at_0h_rst                = .true.,
+ io_form_history                     = 2
+ io_form_restart                     = 2
+ io_form_input                       = 2
+ io_form_boundary                    = 2
+ bdy_inname                          = "wrfbdy_d<domain>",
+ iofields_filename                   = "cwp163_outmods_multiStream_d01.txt",
+history_outname = '/expanse/lustre/scratch/klupo/temp_project/cwp163_temp/ensembles/gefs/2023030900/gep08/wrf/wrfout_d<domain>_<date>'
+
+auxhist10_outname = '/expanse/lustre/scratch/klupo/temp_project/cwp163_temp/ensembles/gefs/2023030900/gep08/wrf/stoch_60min_d<domain>_<date>'
+ io_form_auxhist10                   = 2,       
+ auxhist10_interval                  = 60,    
+ frames_per_auxhist10                = 1,
+
+auxhist11_outname = '/expanse/lustre/scratch/klupo/temp_project/cwp163_temp/ensembles/gefs/2023030900/gep08/wrf/wrfsta_d<domain>_<date>'
+ io_form_auxhist11                   = 2,       
+ auxhist11_interval                  = 60000,    
+ frames_per_auxhist11                = 1,
+
+auxhist12_outname = '/expanse/lustre/scratch/klupo/temp_project/cwp163_temp/ensembles/gefs/2023030900/gep08/wrf/wrfout_30min_pblVxMicromet_d<domain>_<date>'
+ io_form_auxhist12                   = 2,       
+ auxhist12_interval                  = 30,    
+ frames_per_auxhist12                = 1,
+
+auxhist13_outname = '/expanse/lustre/scratch/klupo/temp_project/cwp163_temp/ensembles/gefs/2023030900/gep08/wrf/wrfout_30min_pblSchemeSpec_d<domain>_<date>'
+ io_form_auxhist13                   = 2,       
+ auxhist13_interval                  = 30,    
+ frames_per_auxhist13                = 1,
+
+auxhist14_outname = '/expanse/lustre/scratch/klupo/temp_project/cwp163_temp/ensembles/gefs/2023030900/gep08/wrf/wrfout_60min_d<domain>_<date>'
+ io_form_auxhist14                   = 2,       
+ auxhist14_interval                  = 60,    
+ frames_per_auxhist14                = 1,
+
+ debug_level                         = 0,
+nwp_diagnostics = 0,
+  
+
+ /
+
+ &domains
+time_step  = 10,
+time_step_fract_num  = 0,
+time_step_fract_den  = 1,
+
+ use_adaptive_time_step              = .false.,
+ step_to_output_time                 = .true.,
+ target_cfl                          = 1.28,  
+ target_hcfl                         = 0.9,   
+ max_step_increase_pct               = 5,    
+ starting_time_step                  = 12,    
+ max_time_step                       = 18,    
+ min_time_step                       = 3,    
+ adaptation_domain                   = 1,
+ reasonable_time_step_ratio          = 20,
+
+ max_dom                             = 1,
+ e_we                                = 828, 
+ e_sn                                = 570,
+e_vert = 140, 140, 140, 140,
+eta_levels = 1.0000, 0.9940, 0.9881, 0.9822, 0.9763, 0.9704, 0.9646, 0.9588, 0.9530, 0.9472, 0.9415, 0.9358, 0.9302, 0.9245, 0.9189, 0.9133, 0.9078, 0.9023, 0.8968, 0.8913, 0.8858, 0.8804, 0.8750, 0.8696, 0.8643, 0.8590, 0.8537, 0.8484, 0.8432, 0.8380, 0.8328, 0.8277, 0.8224, 0.8171, 0.8115, 0.8055, 0.7991, 0.7923, 0.7851, 0.7775, 0.7694, 0.7608, 0.7518, 0.7423, 0.7323, 0.7219, 0.7110, 0.6996, 0.6878, 0.6755, 0.6628, 0.6498, 0.6364, 0.6226, 0.6086, 0.5944, 0.5799, 0.5653, 0.5506, 0.5359, 0.5212, 0.5066, 0.4921, 0.4778, 0.4637, 0.4499, 0.4365, 0.4233, 0.4105, 0.3980, 0.3858, 0.3739, 0.3623, 0.3510, 0.3400, 0.3293, 0.3188, 0.3086, 0.2987, 0.2890, 0.2796, 0.2704, 0.2615, 0.2528, 0.2443, 0.2361, 0.2281, 0.2203, 0.2128, 0.2053, 0.1979, 0.1907, 0.1835, 0.1765, 0.1696, 0.1628, 0.1561, 0.1496, 0.1432, 0.1369, 0.1307, 0.1247, 0.1189, 0.1132, 0.1076, 0.1022, 0.0969, 0.0918, 0.0868, 0.0820, 0.0773, 0.0728, 0.0684, 0.0642, 0.0601, 0.0562, 0.0524, 0.0487, 0.0452, 0.0419, 0.0386, 0.0355, 0.0325, 0.0296, 0.0269, 0.0243, 0.0218, 0.0195, 0.0172, 0.0151, 0.0131, 0.0113, 0.0095, 0.0078, 0.0063, 0.0048, 0.0035, 0.0022, 0.0011, 0.0000,
+auto_levels_opt =  ,
+max_dz =  ,
+dzbot =  ,
+dzstretch_s =  ,
+dzstretch_u =  ,
+ p_top_requested                     = 1000,
+num_metgrid_levels = 32,
+ num_metgrid_soil_levels             = 4,
+ dx                                  = 8894.198, 
+ dy                                  = 8894.198, 
+ num_metgrid_soil_levels             = 4,
+ 
+ grid_id                             = 1,   
+ parent_id                           = 0,  
+ i_parent_start                      = 1, 
+ j_parent_start                      = 1, 
+ parent_grid_ratio                   = 1,   
+ parent_time_step_ratio              = 1, 
+
+ feedback                            = 0,
+ smooth_option                       = 0
+/
+
+ &physics
+mp_physics = 8,
+ra_lw_physics = 4,
+ra_sw_physics = 4,
+radt = 9, 
+sf_sfclay_physics = 5,
+sf_surface_physics = 2,
+bl_pbl_physics = 5,
+bl_mynn_closure = 2.6,
+ bldt                                = 0,     
+ cu_physics                          = 3,    
+ cugd_avedx                          = 1,
+ cu_diag                             = 0,     
+ cudt                                = 0,
+ topo_wind			     = 1,   
+ishallow = 0,
+ isfflx                              = 1,
+ ifsnow                              = 1,
+ icloud                              = 1,
+ surface_input_source                = 1,
+ num_soil_layers                     = 4,
+ sf_urban_physics                    = 0,   
+ lightning_option                    = 0,
+ iccg_method                         = 2,
+ iccg_prescribed_num                 = 3,
+ iccg_prescribed_den                 = 1,
+ cldtop_adjustment                   = 0,
+ lightning_dt                        = 0, 
+ lightning_start_seconds             = 600,
+ flashrate_factor                    = 1.0, 
+ do_radar_ref                        = 1,
+ cellcount_method                    = 0, 
+ /
+
+ &stoch
+skebs = 0,
+ tot_backscat_psi                    = 1.0E-05, 1.0E-05,   
+ tot_backscat_t                      = 1.0E-06, 1.0E-06,   
+ ztau_psi                            = 10800.0,   
+ ztau_t                              = 10800.0,   
+ rexponent_psi                       = -1.83,     
+ rexponent_t                         = -1.83,     
+ zsigma2_eps                         = 0.0833,    
+ zsigma2_eta                         = 0.0833,   
+ kminforc                            = 1,        
+ lminforc                            = 1,        
+ kminforct                           = 1,        
+ lminforct                           = 1,         
+ kmaxforc                            = 1000000,   
+ lmaxforc                            = 1000000,   
+ kmaxforct                           = 1000000,   
+ lmaxforct                           = 1000000,   
+ skebs_vertstruc                     = 0, 
+ iseed_skebs                         = 1,
+ perturb_bdy                         = 0,
+nens = 0,
+
+sppt = 0,
+ gridpt_stddev_sppt	              = 0.5,
+ lengthscale_sppt         	      = 150000.0,
+ timescale_sppt            	      = 21600.0,
+ sppt_vertstruc                       = 0,
+ stddev_cutoff_sppt        	      = 2.0,
+ iseed_sppt        		      = 1,
+
+spp = 0,
+spp_pbl = 0,
+ gridpt_stddev_spp_pbl                   = 0.15,      
+ lengthscale_spp_pbl                     = 70000.0, 
+ timescale_spp_pbl                       = 21600.0, 
+ stddev_cutoff_spp_pbl                   = 2.0,      
+ iseed_spp_pbl                           = 1,   
+
+spp_conv = 0,
+ gridpt_stddev_spp_conv                   = 0.15,      
+ lengthscale_spp_conv                     = 70000.0, 
+ timescale_spp_conv                       = 21600.0, 
+ stddev_cutoff_spp_conv                   = 2.0,      
+ iseed_spp_conv                           = 1,    
+
+spp_lsm = 0,
+ gridpt_stddev_spp_lsm                   = 0.3,      
+ lengthscale_spp_lsm                     = 50000.0, 
+ timescale_spp_lsm                       = 86400.0, 
+ stddev_cutoff_spp_lsm                   = 3.0,      
+ iseed_spp_lsm                           = 1,                        
+
+ ! Multiple perturbations for WRF-Solar EPS (multi_perturb = 1)
+ 
+ multi_perturb         = 0,        ! 1) WRF-Solar EPS: turns on stochastic perturbations tailored for solar energy applications
+ spdt                  = -1.0,     ! Frequency to update the stochastic perturbations [minutes]. A negative value indicates for every time step
+ pert_farms            = .false.,  ! Activates perturbations to the FARMS parameterization
+ pert_farms_albedo     = 0.0,      ! 1.0) Perturbs the albedo, 0.0) no perturbations. Similar for other entries below
+ pert_farms_aod        = 0.0,
+ pert_farms_angexp     = 0.0,
+ pert_farms_aerasy     = 0.0,
+ pert_farms_qv         = 0.0,
+ pert_farms_qc         = 0.0,
+ pert_farms_qs         = 0.0,
+ pert_deng             = .false.,  ! Activates perturbations to Deng's shcu parameterization
+ pert_deng_qv          = 0.0,
+ pert_deng_qc          = 0.0,
+ pert_deng_t           = 0.0,
+ pert_deng_w           = 0.0,
+ pert_mynn             = .false.,  ! Activates perturbations to the MYNN PBL parameterization
+ pert_mynn_qv          = 0.0,
+ pert_mynn_qc          = 0.0,
+ pert_mynn_t           = 0.0,
+ pert_mynn_qke         = 0.0,
+ pert_noah             = .false.,  ! Activates perturbations to the Noah LSM
+ pert_noah_qv          = 0.0,
+ pert_noah_t           = 0.0,
+ pert_noah_smois       = 0.0,
+ pert_noah_tslb        = 0.0,
+ pert_thom             = .false.,  ! Activates perturbations to thompson microphysics
+ pert_thom_qv          = 0.0,
+ pert_thom_qc          = 0.0,
+ pert_thom_qi          = 0.0,
+ pert_thom_qs          = 0.0,
+ pert_thom_ni          = 0.0,
+ pert_cld3             = .false., ! Activates perturbations to clouds generated with icloud = 3
+ pert_cld3_qv          = 0.0,
+ pert_cld3_t           = 0.0,
+
+ num_pert_3d           = 15, ! Number of entries in STOCHPERT.TBL plus one (No need to modify)
+
+/
+
+
+ &fdda
+ /
+
+ &dynamics
+ zadvect_implicit                    = 1,
+ w_damping                           = 1,
+ w_crit_cfl                          = 1.5,
+ diff_opt                            = 1, 1,
+ km_opt                              = 4, 4,
+ diff_6th_opt                        = 0,      0,
+ diff_6th_factor                     = 0.12,   0.12,
+ base_temp                           = 290.,
+ damp_opt                            = 3,
+ zdamp                               = 5000.,  5000.,
+ dampcoef                            = 0.2,    0.2,
+ khdif                               = 0,      0,
+ kvdif                               = 0,      0,
+ non_hydrostatic                     = .true., .true.,
+ moist_adv_opt                       = 1,      1,     
+ scalar_adv_opt                      = 1,      1,     
+ epssm                               = 0.5,    0.4,
+ hybrid_opt                          = 2,
+ /
+
+ &bdy_control
+ multi_bdy_files                     = .false.,
+ spec_bdy_width                      = 5,
+ spec_zone                           = 1,
+ relax_zone                          = 4,
+ specified                           = .true., 
+ nested                              = .false.,
+ polar                               = .false.
+ /
+
+ &grib2
+ /
+
+ &diagnostics
+ solar_diagnostics			= 0,
+ /
+
+ &namelist_quilt
+ nio_tasks_per_group = 0,
+ nio_groups = 1,
+ /
