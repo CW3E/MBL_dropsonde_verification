@@ -1,0 +1,50 @@
+!  namelist.wps for WRF runs in cwp163
+! 
+! Kevin Lupo; klupo@ucsd.edu
+! 4 Apr 2024
+!
+! Based on the 2022-23, 2023-24 NRT namelist.wps, except with only the parent domain
+! 
+! settings: "start_date", "end_date", "prefix", "fg_name", "opt_output_from_metgrid_path" are modified at run time by the driver script
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+&share
+ wrf_core = 'ARW',
+ max_dom = 1,
+start_date = '2023-01-04_00:00:00', '2023-01-04_00:00:00', '2023-01-04_00:00:00', '2023-01-04_00:00:00',
+end_date = '2023-01-09_06:00:00', '2023-01-09_06:00:00', '2023-01-09_06:00:00', '2023-01-09_06:00:00',
+ interval_seconds = 10800,
+ io_form_geogrid = 2,
+/
+
+&geogrid
+ parent_id         =   1,
+ parent_grid_ratio =   1,
+ i_parent_start    =   1,
+ j_parent_start    =   1,
+ e_we              =  828,
+ e_sn              =  570,
+ geog_data_res     = 'default',
+ dx = 0.08,
+ dy = 0.08,
+ map_proj = 'lat-lon',
+ ref_lat   =  39.0,
+ ref_lon   = -143.5,
+ pole_lat  =  51.0,
+ pole_lon  =  180.0,
+ stand_lon = 125.0,
+ geog_data_path = '/expanse/nfs/cw3e/cwp163/WRF_LIBRARY/WPS_GEOG',
+/
+
+&ungrib
+ out_format = 'WPS',
+prefix = '/expanse/nfs/cw3e/cwp163/ensembles/icbcs/2023010400//wps/deterministic/GFS',
+/
+
+&metgrid
+fg_name = '/expanse/nfs/cw3e/cwp163/ensembles/icbcs/2023010400//wps/deterministic/GFS',
+ io_form_metgrid = 2,
+opt_output_from_metgrid_path = '/expanse/nfs/cw3e/cwp163/ensembles/icbcs/2023010400//wps/deterministic/',
+ opt_metgrid_tbl_path = '/expanse/nfs/cw3e/cwp163/WRF_LIBRARY/static',
+/
